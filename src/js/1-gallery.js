@@ -74,7 +74,6 @@ const images = [
             height="200px";
             class="gallery-image"
             src="${preview}"
-            data-source="${original}"
             alt="${description}"
           />
         </a>
@@ -98,6 +97,11 @@ const images = [
     gallery.style.listStyleType = "none";
     gallery.style.width = "1440px";
 
-    gallery.addEventListener('click', (event) => {
-        event.preventDefault();
-    });
+
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+const lightbox = new SimpleLightbox(`.gallery a`, {
+    captionsData: `alt`,
+    captionDelay: 250,
+});
